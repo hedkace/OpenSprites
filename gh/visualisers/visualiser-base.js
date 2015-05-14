@@ -38,13 +38,14 @@ function visualizer(audio, fftSize, f) {
         var frequencyData = new Uint8Array(128); // analyser.frequencyBinCount
     
         var renderFrame = function() {
+            requestAnimationFrame(renderFrame);
+            
             try {
                 audioSrc.connect(analyser);
                 audioSrc.connect(ctx.destination);
             } catch(err) {
-                console.log(err);
+                console.error(err);
             }
-            requestAnimationFrame(renderFrame);
             
             console.log('frame');
     
