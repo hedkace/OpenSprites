@@ -34,12 +34,16 @@ function visualizer(audio, fftSize, f) {
         analyser = ctx.createAnalyser();
         analyser.fftSize = fftSize;
         var audioSrc = ctx.createMediaElementSource(audio);
-        audioSrc.connect(analyser);
-        audioSrc.connect(ctx.destination);
     
         var frequencyData = new Uint8Array(128); // analyser.frequencyBinCount
     
         var renderFrame = function() {
+            try {
+                audioSrc.connect(analyser);
+                audioSrc.connect(ctx.destination);
+            catch(err) {
+                console.log(err);
+            }
             requestAnimationFrame(renderFrame);
             
             console.log('frame');
