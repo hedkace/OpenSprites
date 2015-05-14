@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' href='style.css'/>
+        <script src='please.js'></script>
+        <script src='visualiser-base.js'></script>
+    </head>
+    <body>
+        <canvas id='vis-canvas'></canvas>
+        <audio id='myAudio' src='music/steel-movement.mp3' controls></audio>
+        <script>
+
+        var visChoice = window.location.search ? "visualisers/" + window.location.search.substr(1) + ".js" : "visualisers/bars.js";
+        console.log(visChoice);
+
+        var script = document.createElement("script");
+        script.setAttribute("src", visChoice);
+        document.head.appendChild(script);
+
+        </script>
+    </body>
+</html>
