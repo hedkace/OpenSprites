@@ -18,7 +18,7 @@ function visualizer(audio, fftSize, f) {
         fftSize: fftSize,
         frame: f
     };
-    window.onload = function() {
+    //window.onload = function() {
         // Load temporary saved data
         var audio = document.querySelector(VISUALIZER_TEMP_DATA.audio);
         var fftSize = VISUALIZER_TEMP_DATA.fftSize;
@@ -46,5 +46,5 @@ function visualizer(audio, fftSize, f) {
         audio.play();
 
         renderFrame();
-    };
+    //};
 };
