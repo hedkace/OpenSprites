@@ -15,7 +15,7 @@
 function visualizer(audio, fftSize, f) {
     VISUALIZER_TEMP_DATA = {
         audio: audio,
-        fftSize: fftSize,
+        fftSize: 256, //fftSize,
         frame: f
     };
     //window.onload = function() {
@@ -32,7 +32,7 @@ function visualizer(audio, fftSize, f) {
         audioSrc.connect(ctx.destination);
         analyser.fftSize = fftSize;
 
-        var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+        var frequencyData = new Uint8Array(128); // analyser.frequencyBinCount
 
         var renderFrame = function() {
             requestAnimationFrame(renderFrame);
