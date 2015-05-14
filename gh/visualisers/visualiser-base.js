@@ -39,12 +39,11 @@ function visualizer(audio, fftSize, f) {
     
         var renderFrame = function() {
             requestAnimationFrame(renderFrame);
+            audioSrc.connect(analyser);
+            audioSrc.connect(ctx.destination);
             
-            try {
-                audioSrc.connect(analyser);
-                audioSrc.connect(ctx.destination);
-            } catch(err) {
-                console.error(err);
+            if (audio.paused) {
+                return;
             }
             
             console.log('frame');
