@@ -19,10 +19,12 @@ function visualizer(audio, fftSize, f) {
         frame: f
     };
     
+    console.log('vis');
     document.querySelector(audio).addEventListener('canplay', function() {
         // Load temporary saved data
         // required if in a scope, e.g.
         // window.onload
+        console.log('init');
         var audio = document.querySelector(VISUALIZER_TEMP_DATA.audio);
         var fftSize = VISUALIZER_TEMP_DATA.fftSize;
         var f = VISUALIZER_TEMP_DATA.frame;
@@ -39,6 +41,8 @@ function visualizer(audio, fftSize, f) {
     
         var renderFrame = function() {
             requestAnimationFrame(renderFrame);
+            
+            console.log('frame');
     
             // Update data in frequencyData
             analyser.getByteFrequencyData(frequencyData);
