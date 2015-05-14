@@ -41,7 +41,7 @@ function visualizer(audio, fftSize, f) {
             try {
                 audioSrc.connect(analyser);
                 audioSrc.connect(ctx.destination);
-            catch(err) {
+            } catch(err) {
                 console.log(err);
             }
             requestAnimationFrame(renderFrame);
